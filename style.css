@@ -1,0 +1,535 @@
+/* ===== Global Smooth Scrolling ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Base Body Styling ===== */
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 20px;
+    background: rgb(18, 18, 18);
+    background-image: url(assets/noise.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+
+}
+
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #121212; */
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+
+}
+
+.scroll-down {
+
+    display: inline-block;
+    font-size: 70px;
+    color: #aaa;
+    text-decoration: none;
+    margin-top: 70px;
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    border-radius: 2px;
+    background: #444;
+}
+
+
+/* ===== Main Heading ===== */
+h1 {
+    color: peachpuff;
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 20px;
+}
+
+#titles {
+    color: whitesmoke;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+/* ===== About Section ===== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+}
+
+.info,
+.skills {
+    color: peachpuff;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: maroon underline;
+}
+
+/* ===== Profile Image ===== */
+img {
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 100px;
+    margin: 20px;
+    display: block;
+    transition: all 0.4s ease-in-out;
+}
+
+img:hover {
+    box-shadow: 3px 3px 10px rgba(192, 192, 192, 0.5);
+    transform: scale(1.05);
+}
+
+/* ===== About Text ===== */
+#about {
+    color: whitesmoke;
+    flex: 1;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===== Button: View Work ===== */
+.view-work-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    font-size: 25px;
+    width: 250px;
+    margin: 20px auto 80px;
+    padding: 10px 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.view-work-button:hover {
+    color: peachpuff;
+    box-shadow: 0 0 5px whitesmoke;
+}
+
+/* ===== Skills Box ===== */
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    width: 500px;
+    height: 150px;
+    padding-left: 40px;
+    color: gray;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease-in;
+}
+
+ul:hover {
+    color: peachpuff;
+    box-shadow: 0 0 5px whitesmoke;
+    animation: Shadowpulse 4s infinite ease-in-out, changecolor 4s infinite ease-in-out;
+}
+
+/* ===== Section Titles ===== */
+.details {
+    color: peachpuff;
+    text-align: center;
+    font-size: 25px;
+    margin: 50px auto;
+    width: fit-content;
+}
+
+/* ===== Contact Form ===== */
+.Contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 50px;
+}
+
+.Contact-form input,
+.Contact-form button {
+    padding: 8px 12px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Contact-form button {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #222;
+    color: white;
+    border: none;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease;
+}
+
+.Contact-form button:hover {
+    transform: scale(1.05);
+    background-color: #7e7d7d;
+}
+
+/* ===== Socials Styling ===== */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px auto;
+    width: 200px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.socials a {
+    color: gray;
+    font-size: 40px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.socials a:hover {
+    color: peachpuff;
+    transform: scale(1.1);
+    font-weight: 500;
+}
+
+/* ===== Footer ===== */
+footer {
+    padding-top: 50px;
+    color: whitesmoke;
+}
+
+/* ===== Work Sections ===== */
+
+.my-works {
+    color: peachpuff;
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.work-sections {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.work-card {
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: gray;
+    font-size: 20px;
+    width: 250px;
+    height: 500px;
+    padding: 10px 100px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.work-card:hover {
+    color: whitesmoke;
+    /* background: fixed; */
+    animation: Shadowpulse 2s infinite ease-in;
+}
+
+.editing {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url('assets/editing.jpeg');
+    /* Replace image accordingly */
+    background-size: cover;
+    background-position: center;
+}
+
+.coding {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url('assets/coding.jpeg');
+    /* Replace image accordingly */
+    background-size: cover;
+    background-position: center;
+}
+
+.designing {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url('assets/designs.jpeg');
+    /* Replace image accordingly */
+    background-size: cover;
+    background-position: center;
+}
+
+
+.reels-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    border: 2px solid #444;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #111;
+
+}
+
+.reel {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    max-width: 300px;
+}
+
+.reel video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    transition: all 1s ease-in-out;
+}
+
+.reel-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.reel:hover {
+    transform: scale(1.02);
+    animation: Shadowpulse 2s infinite ease-in;
+}
+
+
+.personal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.personal-section {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    border: 2px solid #444;
+    border-radius: 20px;
+    background: #111;
+    padding: 20px;
+}
+
+.personal {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* width: 60%; */
+    max-width: 300px;
+}
+
+.personal video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    transition: all 1s ease-in-out;
+}
+
+.personal:hover {
+    transform: scale(1.02);
+    animation: Shadowpulse 4s infinite ease-in-out;
+}
+
+
+.mographs-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mographs-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background: #111;
+    border: 2px solid #444;
+    border-radius: 20px;
+    gap: 30px;
+    padding: 30px;
+
+}
+
+.mographs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: auto;
+}
+
+.mographs video {
+    width: 100%;
+    height: 500px;
+    /* max-height: 300px; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    transition: all 1s ease-in-out;
+}
+
+.mographs:hover {
+    transform: scale(1.02);
+    animation: Shadowpulse 4s infinite ease-in-out;
+}
+
+
+.book {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: gray;
+    width: 250px;
+    padding: 10px 0 px;
+    margin: 30px auto 80px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.book:hover{
+    color: peachpuff;
+    box-shadow: 0px 0px 5px whitesmoke;
+}
+
+/* ===== Animations ===== */
+@keyframes changecolor {
+
+    0%,
+    100% {
+        color: whitesmoke;
+    }
+
+    50% {
+        color: peachpuff;
+    }
+}
+
+@keyframes Shadowpulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px whitesmoke;
+    }
+
+    50% {
+        box-shadow: 0 0 20px peachpuff;
+    }
+}
+
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.10);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== Responsive (Mobile First) ===== */
+@media(max-width: 600px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about {
+        text-align: center;
+        padding: 10px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    img {
+        width: 200px;
+        box-shadow: 2px 0px 5px linen;
+    }
+
+    ul {
+        font-size: 15px;
+        width: auto;
+        height: 150px;
+        padding: 0 20px;
+        border-radius: 10px;
+        background: black;
+        color: whitesmoke;
+    }
+
+    ul:hover {
+        transform: none;
+        animation: none;
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    #titles {
+        text-align: center;
+    }
+}

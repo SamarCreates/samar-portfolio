@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ===== Meta Tags ===== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sam's Work</title>
+
+    <!-- ===== Fonts and External CSS ===== -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/8936fb8a1b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div data-aos="fade-down" class="my-works">
+        <h1>MY WORKS</h1>
+    </div>
+
+
+    <!-- ===== Work Sections Grid ===== -->
+    <div class="work-sections">
+
+        <!-- Editing Card -->
+        <a href="editor.html" class="work-card editing" data-aos="fade-up" data-aos-delay="300">
+            <h2>Editing Work</h2>
+            <p>Client Works, Case Studies, Motion Samples</p>
+        </a>
+
+        <!-- Coding Card -->
+        <a href="coder.html" class="work-card coding" data-aos="fade-up" data-aos-delay="350">
+            <h2>Coding Work</h2>
+            <!-- <p>Basic Tools, Portfolio Page, Scripts</p> -->
+             <p>Coming Soon</p>
+        </a>
+
+        <!-- Design Card -->
+        <a href="designer.html" class="work-card designing" data-aos="fade-up" data-aos-delay="400">
+            <h2>Design Work</h2>
+            <!-- <p>Carousel Posts, Posters, Social Media</p> -->
+             <p>Coming Soon</p>
+        </a>
+
+    </div>
+
+    <!-- ===== AOS JavaScript Init ===== -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 120,
+            duration: 800
+        });
+    </script>
+</body>
+
+</html>
