@@ -275,7 +275,7 @@ footer {
 
 .editing {
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-        url('assets/editing.jpeg');
+        url('images/editing.jpeg');
     /* Replace image accordingly */
     background-size: cover;
     background-position: center;
@@ -283,7 +283,7 @@ footer {
 
 .coding {
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-        url('assets/coding.jpeg');
+        url('images/coding.jpeg');
     /* Replace image accordingly */
     background-size: cover;
     background-position: center;
@@ -291,7 +291,7 @@ footer {
 
 .designing {
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-        url('assets/designs.jpeg');
+        url('images/designs.jpeg');
     /* Replace image accordingly */
     background-size: cover;
     background-position: center;
@@ -532,4 +532,5 @@ footer {
     #titles {
         text-align: center;
     }
+
 }
