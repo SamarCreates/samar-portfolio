@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Taravoxx Case Study — 10M views in 60 days through a modern visual identity system for astrology content." />
+  <title>Taravoxx — Case Study · Samar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0c;
+      --surface:   #111115;
+      --border:    rgba(255,255,255,0.07);
+      --purple:    #7c3aed;
+      --purple-lo: rgba(124,58,237,0.12);
+      --beige:     #e8dcc8;
+      --text:      #d4d4d8;
+      --muted:     #71717a;
+      --white:     #fafafa;
+      --ff-disp:   'Bebas Neue', sans-serif;
+      --ff-body:   'DM Sans', sans-serif;
+      --gap:       clamp(3rem, 8vw, 7rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: clamp(14px, 1.6vw, 16px);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
+      background: rgba(10,10,12,0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--ff-disp); font-size: 1.35rem; letter-spacing: .05em;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-back {
+      font-size: .8rem; color: var(--muted); text-decoration: none;
+      letter-spacing: .08em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--white); }
+    .nav-back::before { content: '← '; }
+
+    /* ── WRAPPER ── */
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: var(--gap) 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .label {
+      display: inline-block;
+      font-size: .72rem; font-weight: 500; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    h1, h2 { font-family: var(--ff-disp); color: var(--white); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 10vw, 6rem); letter-spacing: .02em; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); letter-spacing: .03em; }
+    h3 { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: .4rem; }
+
+    p { color: var(--text); max-width: 60ch; }
+    p + p { margin-top: .75rem; }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: calc(var(--gap) + 5rem);
+      padding-bottom: var(--gap);
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .85rem;
+      background: var(--purple-lo);
+      border: 1px solid rgba(124,58,237,.3);
+      border-radius: 999px;
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: #a78bfa;
+      margin-bottom: 1.75rem;
+    }
+    .hero-tag span { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; }
+    .hero h1 { margin-bottom: 1.25rem; }
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.1rem); color: var(--muted); max-width: 50ch;
+      font-weight: 300;
+    }
+    .hero-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      margin-top: 2.5rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item { display: flex; flex-direction: column; gap: .2rem; }
+    .stat-num {
+      font-family: var(--ff-disp); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--white); line-height: 1;
+    }
+    .stat-label { font-size: .75rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ── IMG PLACEHOLDER ── */
+    .img-placeholder {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .5rem;
+      color: var(--muted); font-size: .8rem; letter-spacing: .06em;
+      margin: 2rem 0;
+    }
+    .img-placeholder svg { opacity: .3; }
+    .img-placeholder.short { aspect-ratio: 4/1; }
+    .img-placeholder.tall  { aspect-ratio: 4/5; }
+
+    /* ── OVERVIEW GRID ── */
+    .overview-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; margin-top: 2rem;
+    }
+    .ov-cell {
+      background: var(--surface); padding: 1.5rem;
+    }
+    .ov-cell .ov-key {
+      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: .5rem;
+    }
+    .ov-cell .ov-val {
+      font-size: .95rem; color: var(--white); font-weight: 400;
+    }
+
+    /* ── BULLET LISTS ── */
+    .bullet-list {
+      list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .65rem;
+    }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      font-size: .95rem; color: var(--text);
+    }
+    .bullet-list li::before {
+      content: '';
+      flex-shrink: 0; width: 5px; height: 5px;
+      background: var(--purple); border-radius: 50%;
+      margin-top: .52em;
+    }
+
+    /* ── PILL GROUP ── */
+    .pill-row {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem;
+    }
+    .pill {
+      padding: .3rem .85rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+      font-size: .78rem; color: var(--text); letter-spacing: .04em;
+    }
+
+    /* ── FORMAT CARDS ── */
+    .format-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .format-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .format-num {
+      font-family: var(--ff-disp); font-size: 2.5rem; color: var(--purple); line-height: 1;
+      margin-bottom: .5rem;
+    }
+
+    /* ── RESULTS ── */
+    .results-grid {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; margin-top: 2rem;
+    }
+    .result-row {
+      background: var(--surface); padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .result-row:hover { background: rgba(124,58,237,.06); transition: background .2s; }
+    .result-num {
+      font-family: var(--ff-disp); font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--white); line-height: 1; min-width: 6ch; flex-shrink: 0;
+    }
+    .result-text { font-size: .9rem; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta-section { text-align: center; padding: var(--gap) 0; }
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section p  { margin: 0 auto 2rem; color: var(--muted); }
+    .cta-btn {
+      display: inline-block;
+      padding: .85rem 2.25rem;
+      background: var(--purple); color: var(--white);
+      font-family: var(--ff-body); font-size: .9rem; font-weight: 500;
+      letter-spacing: .06em; text-decoration: none; border-radius: 4px;
+      transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-ghost {
+      display: inline-block; margin-left: 1rem;
+      padding: .85rem 2.25rem;
+      border: 1px solid var(--border); color: var(--text);
+      font-size: .9rem; text-decoration: none; border-radius: 4px;
+      transition: border-color .2s, color .2s;
+    }
+    .cta-ghost:hover { border-color: var(--white); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem clamp(1.25rem, 5vw, 2.5rem);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: .75rem;
+    }
+    footer p { font-size: .78rem; color: var(--muted); max-width: none; }
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--white); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 500px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .cta-ghost { margin-left: 0; margin-top: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://samarcreates.github.io/samar-portfolio/" class="nav-logo">Samar</a>
+    <a href="https://samarcreates.github.io/samar-portfolio/works.html" class="nav-back">All Work</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-tag"><span></span>Case Study · 2026</div>
+      <h1>Taravoxx</h1>
+      <p class="hero-sub">
+        Building a modern visual identity for astrology content —<br>
+        from zero presence to 10M+ views in 60 days.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">10M+</span>
+          <span class="stat-label">Views in 60 Days</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Qualified Leads</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Client Conversions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="wrap">
+      <span class="label">Overview</span>
+      <h2>Project Snapshot</h2>
+      <p>A full content overhaul for an astrology consulting brand — from visual identity to scalable editing system.</p>
+      <div class="overview-grid">
+        <div class="ov-cell">
+          <div class="ov-key">Client</div>
+          <div class="ov-val">Taravoxx · Astrology Consulting</div>
+        </div>
+        <div class="ov-cell">
+          <div class="ov-key">Platform</div>
+          <div class="ov-val">Instagram Reels</div>
+        </div>
+        <div class="ov-cell">
+          <div class="ov-key">Timeline</div>
+          <div class="ov-val">2 Months (Jan – Feb 2026)</div>
+        </div>
+        <div class="ov-cell">
+          <div class="ov-key">Role</div>
+          <div class="ov-val">Video Editor · Visual Identity · Content Format</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="wrap">
+      <span class="label">The Problem</span>
+      <h2>Every Astrology Page Looks the Same</h2>
+      <p>The niche was crowded with loud, indistinguishable content — making it impossible to build trust or stand out.</p>
+      <ul class="bullet-list">
+        <li>Overused gold palettes and heavy typography</li>
+        <li>Random stock images — temples, gods, planets</li>
+        <li>No consistent brand identity across posts</li>
+        <li>Visually cluttered feeds with zero recall</li>
+      </ul>
+      <div class="img-placeholder">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke-width="1.5"/></svg>
+        SCREENSHOT — Typical Astrology Reels Feed
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
+  <section>
+    <div class="wrap">
+      <span class="label">Strategy</span>
+      <h2>Go Minimal Where Others Go Loud</h2>
+      <p>The brief was simple: build what no astrology account had — a calm, modern, educational brand voice.</p>
+      <ul class="bullet-list">
+        <li>Calm visual language over high-energy clutter</li>
+        <li>Modern minimal editing — let the content breathe</li>
+        <li>Clear information hierarchy for fast comprehension</li>
+        <li>Consistent brand identity built to scale</li>
+      </ul>
+      <div class="img-placeholder">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke-width="1.5"/></svg>
+        SCREENSHOT — Taravoxx Feed Grid
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL IDENTITY -->
+  <section>
+    <div class="wrap">
+      <span class="label">Visual Identity</span>
+      <h2>A System Built for Recall</h2>
+      <p>Every frame follows the same visual rules — so the brand is recognisable even mid-scroll.</p>
+      <div class="pill-row">
+        <span class="pill">Purple + Beige Palette</span>
+        <span class="pill">Clean Modern Typography</span>
+        <span class="pill">UI-style Info Cards</span>
+        <span class="pill">AI Illustration Visuals</span>
+        <span class="pill">Subtle Transitions</span>
+      </div>
+      <div class="img-placeholder" style="margin-top:2rem;">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke-width="1.5"/></svg>
+        SCREENSHOT — Brand Color & Typography Reference
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITING STYLE -->
+  <section>
+    <div class="wrap">
+      <span class="label">Editing Style</span>
+      <h2>Premium Feels Calm, Not Flashy</h2>
+      <p>The editing was designed to feel trustworthy — like a knowledgeable friend, not a hype reel.</p>
+      <ul class="bullet-list">
+        <li>Minimal transitions — blur and fade only</li>
+        <li>Ambient background music, no aggressive SFX</li>
+        <li>Creator's face always front and center</li>
+        <li>Subtle noise and tint for cinematic texture</li>
+      </ul>
+      <div class="img-placeholder short">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polygon points="5 3 19 12 5 21 5 3" stroke-width="1.5"/></svg>
+        SAMPLE REEL THUMBNAILS — Spiritual / Kalsarpa / Rudraksha
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL STORYTELLING -->
+  <section>
+    <div class="wrap">
+      <span class="label">Visual Storytelling</span>
+      <h2>Replace Stock with Story</h2>
+      <p>AI-generated illustrations replaced generic stock imagery — making complex astrology concepts instantly visual.</p>
+      <ul class="bullet-list">
+        <li>Planetary deities rendered with consistency and detail</li>
+        <li>Symbolic visuals aligned with each reel topic</li>
+        <li>Beige background cards for clean in-feed contrast</li>
+      </ul>
+      <div class="img-placeholder">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5"/><path d="M21 15l-5-5L5 21" stroke-width="1.5"/></svg>
+        ILLUSTRATIONS — Shani Dev / Rudraksha / Shiva
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT SYSTEM -->
+  <section>
+    <div class="wrap">
+      <span class="label">Content System</span>
+      <h2>Three Formats. Infinite Reels.</h2>
+      <p>Content was structured into repeatable formats so the team could produce consistently without reinventing the wheel.</p>
+      <div class="format-grid">
+        <div class="format-card">
+          <div class="format-num">01</div>
+          <h3>Educational</h3>
+          <p>Talking-head explanations of astrology concepts. Retention-paced, hook-driven.</p>
+        </div>
+        <div class="format-card">
+          <div class="format-num">02</div>
+          <h3>Concept Visual</h3>
+          <p>Illustration-based reels. Planetary ideas visualised for discovery.</p>
+        </div>
+        <div class="format-card">
+          <div class="format-num">03</div>
+          <h3>Story Reel</h3>
+          <p>Symbolic visuals designed to attract reach and new audiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALABLE SYSTEM -->
+  <section>
+    <div class="wrap">
+      <span class="label">Scalable System</span>
+      <h2>Built to Grow Without Breaking</h2>
+      <p>A reusable editing template was built so the brand stays consistent — regardless of volume or team size.</p>
+      <ul class="bullet-list">
+        <li>Reusable Premiere Pro project files</li>
+        <li>Typography rules locked across all formats</li>
+        <li>Pre-built UI components and visual presets</li>
+        <li>Plug-and-play for any new editor onboarded</li>
+      </ul>
+      <div class="img-placeholder short">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="1.5"/></svg>
+        SCREENSHOT — Premiere Pro Timeline Template
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section>
+    <div class="wrap">
+      <span class="label">Results</span>
+      <h2>Numbers That Speak</h2>
+      <p>Performance measured across views, leads, and direct client conversions.</p>
+      <div class="results-grid">
+        <div class="result-row">
+          <span class="result-num">10M+</span>
+          <span class="result-text">Views generated in 60 days through retention-focused editing</span>
+        </div>
+        <div class="result-row">
+          <span class="result-num">50+</span>
+          <span class="result-text">Qualified leads driven by structured short-form content</span>
+        </div>
+        <div class="result-row">
+          <span class="result-num">10+</span>
+          <span class="result-text">Client conversions attributed to performance-driven reels</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="wrap">
+      <span class="label">Let's Work</span>
+      <h2>Want Results Like This?</h2>
+      <p>I build content systems that grow brands — not just cut clips.</p>
+      <div>
+        <a href="mailto:work.samarkataria@gmail.com" class="cta-btn">Get in Touch →</a>
+        <a href="https://samarcreates.github.io/samar-portfolio/works.html" class="cta-ghost">More Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Samar · <a href="https://samarcreates.github.io/samar-portfolio/">samarcreates</a></p>
+    <p><a href="mailto:work.samarkataria@gmail.com">work.samarkataria@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
